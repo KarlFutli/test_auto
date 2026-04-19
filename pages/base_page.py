@@ -1,6 +1,6 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException, NoSuchFrameException
+from selenium.common.exceptions import TimeoutException, ElementClickInterceptedException
 
 class BasePage:
     def __init__(self, driver):
@@ -8,14 +8,18 @@ class BasePage:
         self.wait = WebDriverWait(driver, 10)
 
     def find_element(self, locator):
-        return self.wait.until(EC.presence_of_element_lacated(locator))
+        return self.wait.until(EC.presence_of_element_located(locator))
 
     def click(self, locator):
         element = self.find_element(locator)
         # Скроллим до видимости
         self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
-        # Ждем и кликаем
-        self.wait.until(EC.element_to_be_clickable(locator)).click()
+        try:
+            # Ждем и кликаем
+            self.wait.until(EC.element_to_be_clickable(locator)).click()
+        except ElementClickInterceptedException:
+            #JS если не удалось нажать
+            self.driver.execute_script("arguments[0].click();", element)
 
     def input_text(self, locator, text):
         element = self.find_element(locator)

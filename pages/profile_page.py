@@ -6,7 +6,7 @@ class ProfilePage(BasePage):
     LOGOUT_BUTTON = (By.ID, "submit")
 
     def is_loaded(self):
-        return "/account" in self.get_current_url()
+        return "/profile" in self.get_current_url()
     def logout(self):
         from .login_page import LoginPage
 
