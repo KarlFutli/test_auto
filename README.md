@@ -29,6 +29,7 @@ pip install -r requirements.txt
 # Настройка конфигурации
 
 Создайте файл .env в корне проекта на основе шаблона .env.example и заполните его своими данными:
+
 BASE_URL=https://demoqa.com
 VALID_USER=ваш_логин
 VALID_PASSWORD=ваш_пароль
