@@ -1,0 +1,36 @@
+venv/
+env/
+.env
+*.pyc
+__pycache__/
+*.py[cod]
+*$py.class
+
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+reports/
+allure-results/
+pytest_cache/
+.pytest_cache/
+htmlcov/
+.coverage
+nosetests.xml
+coverage.xml
+*.log
+
+.DS_Store         # macOS
+Thumbs.db         # Windows
+ehthumbs.db       # Windows
+Desktop.ini       # Windows
+$RECYCLE.BIN/     # Windows
+
+.geckodriver.log
+chromedriver.exe  # Если вдруг скачал вручную, хотя мы используем Manager
+*.tmp
