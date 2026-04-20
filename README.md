@@ -19,7 +19,7 @@
 
 # Клонирование репозитория
 
-git clone <ссылка_на_твой_репозиторий>
+git clone https://github.com/KarlFutli/test_auto.git
 cd test_auto
 
 # Установка зависимостей
